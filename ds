@@ -1,0 +1,29 @@
+=> 
+[[32m#<User:0x00005647f75ddd98[0m
+  id: [34m[1m1[0m,
+  name: [31m[1m"[0m[31msdfds[0m[31m[1m"[0m,
+  nickname: [31m[1m"[0m[31msdf[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31msdf[0m[31m[1m"[0m,
+  created_at: Tue, 20 Feb 2024 21:40:34.177055000 UTC +00:00,
+  updated_at: Tue, 20 Feb 2024 21:40:34.177055000 UTC +00:00[32m>[0m,
+ [32m#<User:0x00005647f6efb160[0m
+  id: [34m[1m2[0m,
+  name: [31m[1m"[0m[31msdfds[0m[31m[1m"[0m,
+  nickname: [31m[1m"[0m[31msdf[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31msdf[0m[31m[1m"[0m,
+  created_at: Tue, 20 Feb 2024 21:42:11.690601000 UTC +00:00,
+  updated_at: Tue, 20 Feb 2024 21:42:11.690601000 UTC +00:00[32m>[0m,
+ [32m#<User:0x00005647f6efb098[0m
+  id: [34m[1m3[0m,
+  name: [31m[1m"[0m[31mivan[0m[31m[1m"[0m,
+  nickname: [31m[1m"[0m[31mivan[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31mivan@mail.ru[0m[31m[1m"[0m,
+  created_at: Tue, 20 Feb 2024 21:57:48.679335000 UTC +00:00,
+  updated_at: Tue, 20 Feb 2024 21:57:48.679335000 UTC +00:00[32m>[0m,
+ [32m#<User:0x00005647f6efafd0[0m
+  id: [34m[1m4[0m,
+  name: [31m[1m"[0m[31mas[0m[31m[1m"[0m,
+  nickname: [31m[1m"[0m[31mas[0m[31m[1m"[0m,
+  email: [31m[1m"[0m[31msa[0m[31m[1m"[0m,
+  created_at: Tue, 20 Feb 2024 22:03:24.260469000 UTC +00:00,
+  updated_at: Tue, 20 Feb 2024 22:03:24.260469000 UTC +00:00[32m>[0m]

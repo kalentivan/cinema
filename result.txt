@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cinema</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="H4FvS51RChcsc6-l7qzTKACUbgUx6PCx4naBcZiWgb0VEOrc0lmNzpkOJT0ejKzD4jBw4t1qpouUXRxEgkB2-Q" />
+    
+
+    <link rel="stylesheet" href="/assets/application-e0cf9d8fcb18bf7f909d8d91a5e78499f82ac29523d475bf3a9ab265d5e2b451.css" data-turbo-track="reload" />
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-fcb683144a7bcb99720c2a5325259ae33a534c66f030618d91bb306a3bb6efd2.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js",
+    "controllers/application": "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+    "controllers": "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-37f365cbecf1fa2810a8303f4b6571676fa1f9c56c248528bc14ddb857531b95.js">
+<link rel="modulepreload" href="/assets/turbo.min-fcb683144a7bcb99720c2a5325259ae33a534c66f030618d91bb306a3bb6efd2.js">
+<link rel="modulepreload" href="/assets/stimulus.min-dd364f16ec9504dfb72672295637a1c8838773b01c0b441bd41008124c407894.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-3576ce92b149ad5d6959438c6f291e2426c86df3b874c525b30faad51b0d96b3.js">
+<link rel="modulepreload" href="/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js">
+<link rel="modulepreload" href="/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js">
+<link rel="modulepreload" href="/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js">
+<script type="module">import "application"</script>
+  </head>
+
+  <body>
+    blablblbaaa
+  </body>
+</html>
+<%= form_with model: @film do |film| %>
+    <p><%= form.label :name, 'Name' %></p>
+    <p><%= form.text_area :name, rows: 5 %></p>
+    <p><%= form.label :duration, 'Duration' %></p>
+    <p><%= form.text_field :duration%></p>
+    <p><%= form.label :description, 'Description' %></p>
+    <p><%= form.text_area :description, rows: 5 %></p>
+    <p><%= form.submit 'Create' %></p>
+<% en %>
+
+ <div class="wrapper">
+    <% if flash[:notice].present? %>
+      <p class="md mt message-notice> <%= flash[:notice] %></p>
+    <% elsif flash[:alert].present? %>
+      <p class="md mt message-alert> <%= flash[:alert] %></p>
+    <% end %>
+  </div>
+
+
+
+  <form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Пароль</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+<h2 class="title">Вход</h2>
+
+<div class="mt">
+    <%= form_with scope: :session, url: sessions_path, data: {turbo: false} do |form| %>
+        <p> <%= form.label :email %> </p>    
+        <p> <%= form.text_field :email, class: 'form-text-field'%> </p>  
+
+        <p class="mt"> <%= form.label :password %> </p>    
+        <p> <%= form.password_field :password, class: 'form-text-field'%> </p>  
+
+        <p class="mt-lg"><%= form.submit 'Войти', class: 'button button-main'%> </p>    
+    <% end %>
+</div>
+
+ <% for comment in @comments do %>
+    <div class="panel-body">
+    <!-- Комментарии -->
+    <!--===================================================-->
+      <div class="media-block">
+        <a class="media-left" href="#"><img class="img-circle img-sm" alt="Профиль пользователя" src="https://bootstraptema.ru/snippets/icons/2016/mia/1.png"></a>
+        <div class="media-body">
+          <div class="mar-btm">
+            <p class="text-semibold media-heading box-inline"><%= @user %></p>
+            <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i><%= comment.created_at %></p>
+          </div>
+          <p> <%= comment.comment %></p>
+          <div class="pad-ver">
+            <div class="btn-group">
+              <a class="btn btn-sm btn-default btn-hover-success" href="#"><i class="fa fa-thumbs-up"></i></a>
+              <a class="btn btn-sm btn-default btn-hover-danger" href="#"><i class="fa fa-thumbs-down"></i></a>
+            </div>
+          </div>
+          <hr>
+      </div>
+    </div>
+  <% end %>
+
+.img-sm {
+ width: 46px;
+ height: 46px;
+}
+
+.panel {
+    box-shadow: 0 2px 0 rgba(0,0,0,0.075);
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 15px;
+}
+
+.panel .panel-footer, .panel>:last-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.panel .panel-heading, .panel>:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.panel-body {
+ padding: 25px 20px;
+}
+.media-block .media-left {
+ display: block;
+ float: left
+}
+.media-block .media-right {
+ float: right
+}
+.media-block .media-body {
+ display: block;
+ overflow: hidden;
+ width: auto
+}
+.middle .media-left,
+.middle .media-right,
+.middle .media-body {
+ vertical-align: middle
+}
+.thumbnail {
+ border-radius: 0;
+ border-color: #e9e9e9
+}
+.tag.tag-sm, .btn-group-sm>.tag {
+ padding: 5px 10px;
+}
+.tag:not(.label) {
+ background-color: #fff;
+ padding: 6px 12px;
+ border-radius: 2px;
+ border: 1px solid #cdd6e1;
+ font-size: 12px;
+ line-height: 1.42857;
+ vertical-align: middle;
+ -webkit-transition: all .15s;
+ transition: all .15s;
+}
+.text-muted, a.text-muted:hover, a.text-muted:focus {
+ color: #acacac;
+}
+.text-sm {
+ font-size: 0.9em;
+}
+.text-5x, .text-4x, .text-5x, .text-2x, .text-lg, .text-sm, .text-xs {
+ line-height: 1.25;
+}
+.btn-trans {
+ background-color: transparent;
+ border-color: transparent;
+ color: #929292;
+}
+.btn-icon {
+ padding-left: 9px;
+ padding-right: 9px;
+}
+.btn-sm, .btn-group-sm>.btn, .btn-icon.btn-sm {
+ padding: 5px 10px !important;
+}
+.mar-top {
+ margin-top: 15px;
+}
+
+
+
+             <% if current_user.present?and comment.user_id == current_user.id %>
+                  <div class="mt-lg">
+                    <%= button_to "D", comments_path(id: comment.id),
+                    method: :delete,
+                    class: 'button button-main' %>
+                  </div>
+                <% end %>
+
+                  delete 'users/:id' to: 'users#destroy'
+  delete 'comments/:id' to: 'comments#destroy'

@@ -1,0 +1,66 @@
+<div class="container">
+
+  <h1 class="text-center text-bold"><%= @film.name %></h1>
+  <div class="card">
+    <%= image_tag @film.athor, height: 300 %>
+    <div class="card-body">
+      <h2 class="text-bold">Описание</h2>
+      <p class="card-text"><%= @film.description %></p>
+      <p class="card-text">Продолжительность: <%= @film.duration %> мин. </p>
+    </div>
+  </div>
+  
+  <% if current_user.present? %>
+    <div class="card mt-sm">
+      <form action="/comments" method="POST">
+        <p class="mt ml"><label for="comment[comment]">Ваш комментарий</label></p>
+        <p class="ml mr"><textarea class="form-text-area" name="comment[comment]" rows=5></textarea></p> 
+        <p class="mt ml"><input type="submit" value="Добавить" class="button button-main"></p>
+    </div>
+  <% end %>
+
+
+  <% Comment.all.each do |comment| %>
+    <div>
+      <% if comment.film_id == @film.id %>
+        <% if comment.user_id != nil %>
+          <div class="panel-body">
+            <div class="media-block">
+              <a class="media-left" href="#"><img class="img-circle img-sm" alt="Профиль пользователя" src="https://bootstraptema.ru/snippets/icons/2016/mia/1.png"></a>
+              <div class="media-body">
+                <div class="mar-btm mt">
+                  <p class="text-semibold media-heading box-inline"><%= User.find_by(id: comment.user_id)&.nickname %></p>
+                  <p class="text-muted text-sm"><i class="fa fa-mobile fa-lg"></i><%= comment.created_at %></p>
+                </div>
+                <p> <%= comment.comment %></p>
+
+                <% if current_user.present? && comment.user_id == current_user.id %>
+                  <div class="mt-sm">
+                    <%= link_to fa_icon('trash-o'), "/comments/#{comment.id}", method: :delete %>
+                  </div>
+                <% end %>
+                
+                <hr>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
+
+
+<div class="container">
+  <footer class="mt">
+    <div class="container text-center">
+      <a href="#"><i class="fa fa-vk"></i></a>
+      <a href="#"><i class="fa fa-telegram"></i></a>
+    </div>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="../films/" class="nav-link px-2 text-muted">Фильмы</a></li>
+      <li class="nav-item"><a href="../contacts/" class="nav-link px-2 text-muted">Контакты</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2024 Company, Inc</p>
+  </footer>
+</div>

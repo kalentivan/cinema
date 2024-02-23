@@ -1,0 +1,32 @@
+
+<div class="container">
+    <h2 class="title">Вход</h1>
+
+    <p class="mt">Введите свой email и пароль для входа на сайт</p>
+    
+    <div class="mt">
+    <%= form_with scope: :session, url: session_path, data: {turbo: false} do |form| %>
+        <p> <%= form.label :email%> </p> 
+        <p> <%= form.text_field :email, class: 'form-text-field'%> </p>    
+        
+        <p class="mt"><%= form.label :password %></p>
+        <p> <%= form.password_field :password, class: 'form-text-field'%> </p>    
+
+        <p class="mt-lg"><%= form.submit 'Зарегистрироваться', class: 'button button-main' %> </p>    
+    <% end %> 
+</div>
+
+
+<div class="container">
+  <footer class="mt">
+    <div class="container text-center">
+      <a href="#"><i class="fa fa-vk"></i></a>
+      <a href="#"><i class="fa fa-telegram"></i></a>
+    </div>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="../films/" class="nav-link px-2 text-muted">Фильмы</a></li>
+      <li class="nav-item"><a href="../contacts/" class="nav-link px-2 text-muted">Контакты</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2024 Company, Inc</p>
+  </footer>
+</div>

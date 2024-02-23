@@ -1,0 +1,32 @@
+
+<div class="container">
+  <h1 class="title-lg text-center text-bold">Фильмы</h1>
+  <div class="row row-cols-1 row-cols-sm-2 g-3 gx-5">
+    <% @films.each do |film| %>
+    <div class="col-6 flex-cards">
+      <div class="card p-3 border bg-light card-columns">
+        <%= image_tag film.athor, height: 300 %>
+        <div class="card-body">
+            <p> <%= link_to "#{film.name}", film_path(film) %></p>
+            <p class="card-title">Длительность: <%= film.duration %> мин.</p>
+            <p class="card-text"><%= film.description %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <footer class="mt">
+    <div class="container text-center">
+      <a href="#"><i class="fa fa-vk"></i></a>
+      <a href="#"><i class="fa fa-telegram"></i></a>
+    </div>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="../films/" class="nav-link px-2 text-muted">Фильмы</a></li>
+      <li class="nav-item"><a href="../contacts/" class="nav-link px-2 text-muted">Контакты</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2024 Company, Inc</p>
+  </footer>
+</div>

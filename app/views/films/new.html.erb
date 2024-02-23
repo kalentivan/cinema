@@ -1,0 +1,13 @@
+<div class="container">
+    <h2 class="title-lg">Новый фильм</h2>
+
+    <form action="/films" method="POST">
+        <p><label for="film[name]">Название</label></p>
+        <p><textarea name="film[name]" rows=5></textarea></p>
+        <p><label for="film[duration]">Продолжительность</label></p>
+        <p><input type="duration" name="films[duration]"></p>
+        <p><label for="film[description]">Описание</label></p>
+        <p><textarea name="film[description]" rows=5></textarea></p>
+        <p><input type="submit" value="Создать"></p>
+    </form>
+</div>

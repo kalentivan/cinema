@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">Кинотеатр</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/films">Фильмы</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" href="../contacts">Контакты</a>
+        </li>
+        
+        <% if @current_user != nil %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/session/destroy">Выход</a>
+        <% end %>
+
+        <% if @current_user == nil %>
+        <li class="nav-item">
+          <a class="nav-link active" href="/session/new">Логин</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/users/new">Регистрация</a>
+        </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
