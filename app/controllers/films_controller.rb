@@ -14,8 +14,12 @@ class FilmsController < ApplicationController
 
     def show
         @film = Film.find_by(id: params[:id])
-        session[:film_id] = @film.id
-        @comments = Comment.all
+        if @film != nil
+            session[:film_id] = @film.id
+            @comments = Comment.all
+        else
+            redirect_to root_path
+        end
     end
 
     def index

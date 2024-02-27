@@ -1,0 +1,75 @@
+
+<div class="container">
+  <h1 class="mt title-lg text-center text-bold">Фильмы</h1>
+  <div class="pl-lg ml-lg row row-cols-1 row-cols-sm-2 g-3 gx-5">
+    <table>
+      <tr class="ml-lg pl-lg">
+        <th class="ml-lg pl-lg">Название</th>
+        <th class="ml-lg pl-lg">Продолжительность</th>
+        <th class="ml-lg pl-lg">Описание</th>
+        <th class="ml-lgpl-lg ">Фото</th>
+      </tr>
+      <% @films.each do |film| %>
+      <tr class="ml-lg pl-lg">
+        <td class="ml-lg pl-lg"><%= film.name %></td>
+        <td class="ml-lg pl-lg"><%= film.duration %></td>
+        <td class="ml-lg pl-lg"><%= film.description %></td>
+        <td class="ml-lg pl-lg"><%= film.athor %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <h1 class="mt title-lg text-center text-bold">Пользователи</h1>
+  <div class="pl-lg ml-lg row row-cols-1 row-cols-sm-2 g-3 gx-5">
+    <table>
+      <tr>
+        <th class="ml-lg pl-lg">Имя</th>
+        <th class="ml-lg pl-lg">Ник</th>
+        <th class="ml-lg pl-lg">Почта</th>
+        <th class="ml-lg pl-lg">Пароль</th>
+      </tr>
+      <% @users.each do |user| %>
+      <tr>
+        <td class="ml-lg pl-lg"><%= user.name %></td>
+        <td class="ml-lg pl-lg"><%= user.nickname %></td>
+        <td class="ml-lg pl-lg"><%= user.email %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <h1 class="mt title-lg text-center text-bold">Комментарии</h1>
+  <div class="pl-lg ml-lg row row-cols-1 row-cols-sm-2 g-3 gx-5">
+    <table>
+      <tr class="ml-lg pl-lg">
+        <th class="ml-lg pl-lg">Фильм</th>
+        <th class="ml-lg pl-lg">Ник</th>
+        <th class="ml-lg pl-lg">Текст</th>
+        <th class="ml-lg pl-lg">Дата создания</th>
+      </tr>
+      <% @comments.each do |comment| %>
+      <tr>
+        <td class="ml-lg pl-lg"><%= Film.find_by(id: comment.film_id).name %></td>
+        <td class="ml-lg pl-lg"><%= User.find_by(id: comment.user_id).nickname %></td>
+        <td class="ml-lg pl-lg"><%= comment.comment %></td>
+        <td class="ml-lg pl-lg"><%= comment.created_at %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="container">
+  <footer class="mt">
+    <div class="container text-center">
+      <a href="#"><i class="fa fa-vk"></i></a>
+      <a href="#"><i class="fa fa-telegram"></i></a>
+    </div>
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="../films/" class="nav-link px-2 text-muted">Фильмы</a></li>
+      <li class="nav-item"><a href="../contacts/" class="nav-link px-2 text-muted">Контакты</a></li>
+    </ul>
+    <p class="text-center text-muted">© 2024 Company, Inc</p>
+  </footer>
+</div>

@@ -44,7 +44,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    debugger
     if params[:id] == session[:user_id].to_s 
       @user = User.find(params[:id])
       @user.destroy

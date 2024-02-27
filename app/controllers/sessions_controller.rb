@@ -18,7 +18,11 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    session.delete(:user_id)
-    redirect_to root_path, notice: 'Вы вышли с сайта'
+    if session[:session] != nil
+      session.delete(:user_id)
+      redirect_to root_path, notice: 'Вы вышли с сайта'
+    else
+      redirect_to root_path
+    end
   end
 end

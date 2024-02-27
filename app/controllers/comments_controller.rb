@@ -24,6 +24,8 @@ class CommentsController < ApplicationController
             comment.delete
             flash[:notice] = 'Комментарий удален!'
             redirect_back_or_to({ action: "show", id: session[:film_id] })
+        else
+            redirect_to root_path
         end
     end
 end
